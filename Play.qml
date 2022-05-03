@@ -38,7 +38,7 @@ Rectangle {
             id: resetButton
             width: 150
             height: 100
-            onClicked: { mainLoader.source = "Home.qml"; myCaro.clearData()}
+            onClicked: { mainLoader.source = "Home.qml"; myCaro.clearBoard()}
             Text {
                 text: "Home"
                 anchors.centerIn: parent

@@ -18,6 +18,16 @@ void CaroChess::clearData(void){
     GameData.clear();
 }
 
+void CaroChess::clearBoard(){
+    for (int i = 0; i < ROW; i++)
+    {
+        for (int j = 0; j < COLUM; j++)
+        {
+            caroBoard[i][j] = ' ';
+        }
+    }
+}
+
 int CaroChess::getValueX(const uint8_t x){
     return GameData[x].x;
 }

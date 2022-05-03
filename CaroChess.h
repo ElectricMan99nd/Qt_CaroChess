@@ -10,8 +10,8 @@
 #include <windows.h>
 using namespace std;
 
-#define ROW 10
-#define COLUM 10
+#define ROW 20
+#define COLUM 20
 #define GAME_WIN 4
 enum PlayerType{
     PLAYER_1 = 0,
@@ -52,6 +52,7 @@ public:
     Q_INVOKABLE bool checkGameOver(const uint8_t turn);
     Q_INVOKABLE bool checkWin(const int x, const int y, const char board[ROW][COLUM]);
     Q_INVOKABLE void clearData(void);
+    Q_INVOKABLE void clearBoard();
 
 };
 
