@@ -16,7 +16,7 @@ Item {
             id: onePlayerButton
             width: 250
             height: 100
-            onClicked: { mainLoader.source = "Play.qml"; myCaro.caroReset()}
+            onClicked: { mainLoader.source = "Play.qml"; myCaro.clearData()}
             Text {
                 text: "1 Player"
                 anchors.centerIn: parent
@@ -30,7 +30,7 @@ Item {
             width: 250
             height: 100
             id: twoPlayerButton
-            onClicked: { mainLoader.source = "Play.qml"; myCaro.caroReset()}
+            onClicked: { mainLoader.source = "Play.qml"; myCaro.clearData()}
             Text {
                 text: "2 Player"
                 anchors.centerIn: parent

@@ -28,9 +28,6 @@ class CaroChess: public QObject
     Q_OBJECT
 private:
     vector <Point> GameData;
-    int _myIndex = 0;
-    int _count = 0;
-    QString _win = "";
 public:
     char caroBoard[ROW][COLUM];
     explicit CaroChess(QObject *parent = nullptr);
@@ -44,7 +41,7 @@ public:
     Q_INVOKABLE int getGameDataSize(void);
     Q_INVOKABLE void pushInVector(Point point);
 
-    Q_INVOKABLE void playerInput(PlayerType type);
+//    Q_INVOKABLE void playerInput(PlayerType type);
     Q_INVOKABLE void playerTick(int x, int y);
     Q_INVOKABLE QString playerCheckWin();
 
@@ -54,6 +51,7 @@ public:
     Q_INVOKABLE bool checkWinInCrossSecond(const int x, const int y, const char board[ROW][COLUM]);
     Q_INVOKABLE bool checkGameOver(const uint8_t turn);
     Q_INVOKABLE bool checkWin(const int x, const int y, const char board[ROW][COLUM]);
+    Q_INVOKABLE void clearData(void);
 
 };
 

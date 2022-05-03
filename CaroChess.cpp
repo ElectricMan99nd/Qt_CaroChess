@@ -3,9 +3,19 @@
 CaroChess:: CaroChess(QObject *parent ):QObject(parent){}
 
 QString CaroChess::caroXO(){
-    _myIndex += 1;
-    if(_myIndex==1){return "X";}
-    else{_myIndex -= 2; return "O";}
+    if(getGameDataSize() == 0){
+      return "X";
+    }
+    else if( (getGameDataSize() - 1) % 2 == 0 ){
+      return "O";
+    }
+    else{
+      return "X";
+    }
+}
+
+void CaroChess::clearData(void){
+    GameData.clear();
 }
 
 int CaroChess::getValueX(const uint8_t x){
@@ -24,13 +34,13 @@ void CaroChess::pushInVector(Point point){
     GameData.push_back(point);
 }
 
-void CaroChess::playerInput(PlayerType type){
-    if(type == PLAYER_1){
-    }
-    else{
-    }
-
-}
+void CaroChess :: caroToaDo(const int &index){
+    int x;
+    int y;
+    x = index%20;
+    y = index/20;
+    playerTick(x, y);
+};
 
 void CaroChess::playerTick(int x, int y){
     if(getGameDataSize() == 0){
@@ -54,26 +64,27 @@ void CaroChess::playerTick(int x, int y){
         pushInVector(temp);
         caroBoard[x][y] = 'X';
     }
-//    playerRefresh();
 }
 
 QString CaroChess::playerCheckWin(){
-    QString result;
-    if(checkWin(getValueX(getGameDataSize() - 1), getValueY(getGameDataSize() - 1), caroBoard))    {
+    QString result = "";
+    if(checkWin(getValueX(getGameDataSize() - 1), getValueY(getGameDataSize() - 1), caroBoard)){
         int index = getGameDataSize() - 1;
         if(index % 2 == 0){
            result = "X win";
            return result;
+           clearData();
         }else{
             result = "O win";
             return result;
+            clearData();
         }
     }
+    return 0;
 //    if(checkGameOver(getGameDataSize())){
 //        result = "Draw";
 //        return result;
 //    }
-
 }
 
 bool CaroChess::checkWinInRow(const int x, const int y, const char board[ROW][COLUM]){
@@ -230,15 +241,7 @@ bool CaroChess::checkWin(const int x, const int y, const char (*board)[COLUM]){
 }
 
 //-----------------------------------------------
-void CaroChess :: caroToaDo(const int &index){
-    int x;
-    int y;
-    x = index%20;
-    y = index/20;
-    playerTick(x, y);
 
-
-};
 
 
 

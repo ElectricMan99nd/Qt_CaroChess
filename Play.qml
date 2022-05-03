@@ -18,7 +18,7 @@ Rectangle {
             width: 20
             height: 20
             onClicked:{
-                if(playButton.text === ""){
+                if(playButton.text === "" && myText.text === "" ){
                     playButton.text = myCaro.caroXO();
                     myCaro.caroToaDo(index);
                     myText.text = myCaro.playerCheckWin();
@@ -38,7 +38,7 @@ Rectangle {
             id: resetButton
             width: 150
             height: 100
-            onClicked: mainLoader.source = "Home.qml"
+            onClicked: { mainLoader.source = "Home.qml"; myCaro.clearData()}
             Text {
                 text: "Home"
                 anchors.centerIn: parent
